@@ -9,8 +9,10 @@ begin
     gem.description = %Q{Provides an API for easily connecting to the nginx_http_push_module in Ruby}
     gem.email = "scashin133@gmail.com"
     gem.homepage = "http://github.com/socialcast/nginx-http-push-connector"
-    gem.authors = ["Sean Cashin"]
+    gem.authors = ["Sean Cashin", "Socialcast"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_dependency "typhoeus", "0.1.13"
+    gem.add_dependency "configatron", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

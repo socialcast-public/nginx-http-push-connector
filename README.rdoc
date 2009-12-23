@@ -1,6 +1,6 @@
 = nginx-http-push-connector
 
-Description goes here.
+DO NOT USE! Under developtment.  Will be available shortly.
 
 == Note on Patches/Pull Requests
  

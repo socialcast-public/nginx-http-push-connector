@@ -21,6 +21,7 @@ end
 
 require 'typhoeus'
 require 'configatron'
+require 'crack/json'
 require 'uri'
 
 require_local File.join('nginx-http-push-connector','base')

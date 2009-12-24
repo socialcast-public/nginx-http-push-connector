@@ -16,11 +16,13 @@ module NginxHttpPush
     end
     
     def self.parse(response)
-      if body = response.body
-        Hash[YAML::load(body.to_s).collect{|k,v| [k.gsub(/\s/,"_").to_sym, v.to_i]}]
-      else
-        {}
-      end.merge({:code => response.code.to_i})
+      (Crack::JSON.parse(response.body.to_s) || {}).merge({"code" => response.code.to_i})
+    end
+    
+    def self.request(method, options={})
+      options[:headers] = {} if options[:headers].nil?
+      options[:headers].merge!({"Accept" => 'application/json'}) if options[:headers]["Accept"].nil?
+      Typhoeus::Request.send(method.to_sym, options.delete(:uri), options)
     end
   end
 end
